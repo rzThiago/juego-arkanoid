@@ -25,6 +25,8 @@ def generar_bloques(columnas, filas, probabilidad):
             # --------------------------------------------------------------
     return bloques
 
+    #ddddddd
+
 def juego(ventana_juego, velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bloques, dificultad):
     ancho_paleta = 100
     alto_paleta = 15
