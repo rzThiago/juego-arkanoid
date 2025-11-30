@@ -1,9 +1,15 @@
 import pygame
 
-from utilidades.fuentes import fuente_principal
+from utilidades.fuentes import fuente_principal, fuente_ocho_bit
 import utilidades.constantes as datos
+import utilidades.imagenes as imagen
+
+
+imagen_fondo = imagen.pantalla_derrota
 
 def pantalla_final(ventana, puntaje, dificultad):
+    ventana.blit(imagen_fondo, (0, 0))
+
     color_activo = pygame.Color((255, 255, 255))
     color_pasivo = pygame.Color((15, 15, 15))
     color = color_pasivo
@@ -41,11 +47,10 @@ def pantalla_final(ventana, puntaje, dificultad):
         else:
             color = color_pasivo
 
-        ventana.fill((19, 102, 161))
-        render1 = fuente_principal.render("FIN DEL JUEGO", True, (255, 255, 255))
+        render1 = fuente_ocho_bit.render("FIN DEL JUEGO", True, (255, 255, 255))
         render2 = fuente_principal.render(f"Puntaje: {puntaje}", True, (255, 255, 255))
         render3 = fuente_principal.render("Nombre:", True, (255, 255, 255))
-        ventana.blit(render1, (260, 150))
+        ventana.blit(render1, (320, 100))
         ventana.blit(render2, (320, 250))
         ventana.blit(render3, (320, 330))
         pygame.draw.rect(ventana, color, input_rect, 2)
