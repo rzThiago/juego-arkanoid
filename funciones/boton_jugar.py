@@ -21,4 +21,4 @@ def jugar():
             puntaje, dificultad = juego(velocidad_pelota = 6, tiempo = 8000, probabilidad_juego = 15, fila_bloques = 9, columna_bloques = 10, dificultad=datos.dificultad)
         case "imposible":
             juego(velocidad_pelota = 5.2, tiempo = 8000, probabilidad_juego = 15, fila_bloques = 10, columna_bloques = 10, dificultad=datos.dificultad)
-    pantalla_final(ventana=ventana, puntaje=puntaje, dificultad=dificultad)
+    pantalla_final(puntaje=puntaje, dificultad=dificultad)

@@ -5,8 +5,8 @@ pantalla_principal = pygame.image.load("./utilidades/imagenes/pantalla_principal
 # Reescalamos la Imagen de fondo
 pantalla_principal = pygame.transform.scale(pantalla_principal, (800, 600))
 
-pantalla_derrota = pygame.image.load("./utilidades/imagenes/pantalla_derrota.png")
-pantalla_derrota = pygame.transform.scale(pantalla_derrota, (800, 600))
+pantalla_derrota = pygame.image.load("./utilidades/imagenes/pantalla_derrota2.png")
+#pantalla_derrota = pygame.transform.scale(pantalla_derrota, (800, 600))
 pantalla_pausa = pygame.image.load("./utilidades/imagenes/pantalla_pausa2.png")
 #pantalla_pausa = pygame.transform.scale(pantalla_pausa, (800, 600))
 #Cargamos imagenes
@@ -38,5 +38,3 @@ volumen70 = pygame.image.load("./utilidades/imagenes/volumen70.png")
 volumen80 = pygame.image.load("./utilidades/imagenes/volumen80.png")
 volumen90 = pygame.image.load("./utilidades/imagenes/volumen90.png")
 volumen100 = pygame.image.load("./utilidades/imagenes/volumen100.png")
-fin_del_juego = pygame.image.load("./utilidades/imagenes/fin_del_juego.png")
-fin_del_juego = pygame.transform.scale(fin_del_juego, (750, 500))

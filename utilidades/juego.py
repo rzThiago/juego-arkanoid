@@ -6,6 +6,7 @@ import utilidades.constantes as datos
 import utilidades.imagenes as imagen
 import funciones.funciones as funcion
 import funciones.funcion_principal as funcion_principal
+from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out
 
 ventana_juego = pygame.display.set_mode((datos.ANCHO, datos.ALTO))
 
@@ -21,6 +22,16 @@ def funcion_pausa():
     corriendo = True
     while corriendo:
         ventana_juego.blit(imagen.pantalla_pausa, (0, 0))
+
+        texto_pausa_in = fuente_ochobit_in.render("PAUSA", True, (14, 235, 33))
+        texto_pausa_in_rect = texto_pausa_in.get_rect(center = (datos.ANCHO / 2, 150))
+
+        texto_pausa_out = fuente_ochobit_out.render("PAUSA", True, (10, 10, 10))
+        texto_pausa_out_rect = texto_pausa_out.get_rect(center = (datos.ANCHO / 2, 150))
+
+        ventana_juego.blit(texto_pausa_in, texto_pausa_in_rect)
+        ventana_juego.blit(texto_pausa_out, texto_pausa_out_rect)
+
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 pygame.quit()
@@ -127,9 +138,9 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
             pausa = funcion_pausa()
 
         teclas = pygame.key.get_pressed()
-        if teclas[pygame.K_LEFT] and paleta.left > 0:
+        if (teclas[pygame.K_LEFT] or teclas[pygame.K_a]) and paleta.left > 0:
             paleta.x -= 7
-        if teclas[pygame.K_RIGHT] and paleta.right < 800:
+        if (teclas[pygame.K_RIGHT] or teclas[pygame.K_d]) and paleta.right < 800:
             paleta.x += 7
 
         # Movimiento pelota
