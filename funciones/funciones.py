@@ -49,26 +49,25 @@ def dibujar_menu():
                 datos.botones[4]["dimension"]["x2"],
                 datos.botones[4]["dimension"]["y2"]
         ))
+        ventana.blit(
+            imagen.ranking,(
+                datos.botones[13]["dimension"]["x1"],
+                datos.botones[13]["dimension"]["y1"],
+                datos.botones[13]["dimension"]["x2"],
+                datos.botones[13]["dimension"]["y2"]
+        ))
     pygame.display.update()
 
 def dibujar_configuracion():
     ventana.blit(imagen.pantalla_configuracion, (0, 0))
 
-    #titulo_configuracion = pygame.render()
-
     sonido_boton.set_volume(datos.volumen)
     sonido_boton.play()
-    """
-            #Desactivar sonido
-        elif keys[pygame.K_m]:
-            pygame.mixer.music.set_volume(0.0)
-            ventana.blit(volumen_muteado, (600, 25))
-    """
-    #ventana.blit(imagen.pantalla_principal, (0, 0))
-    ventana.blit(imagen.dificultad,(120,285))
-    ventana.blit(imagen.volumen,(120,351))
-    ventana.blit(imagen.desactivado,(300,415))
-    ventana.blit(imagen.mute,(120,415))
+    ventana.blit(imagen.dificultad,(120,265))
+    ventana.blit(imagen.volumen,(120,331))
+    ventana.blit(imagen.desactivado,(300,395))
+    ventana.blit(imagen.mute,(120,395))
+
     ventana.blit(
         imagen.volver,(
             datos.botones[5]["dimension"]["x1"],
