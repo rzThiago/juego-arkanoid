@@ -8,5 +8,4 @@ pygame.init()
 pygame.display.set_caption(datos.TITULO)
 
 
-
 funcion.principal()
