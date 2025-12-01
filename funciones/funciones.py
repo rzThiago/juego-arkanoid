@@ -118,11 +118,37 @@ def dibujar_configuracion():
             datos.botones[12]["dimension"]["y2"]
             ))
     
+    boton= datos.botones[5]
+    mouse_pos = pygame.mouse.get_pos()
+    if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
+        print("Estoy en el boton")
+        if not boton["hover"]:
+            boton["hover"] = True
+        color = (0, 0, 255)
+    else:
+        print("NO estoy en el boton")
+        boton["hover"] = False
+        color = (0, 0, 0)
+
+    pygame.draw.rect(ventana, color, pygame.Rect(300, 460, 220, 45),4)
+
+    
     pygame.display.update()
     
     corriendo = True
     while (True):   
         valor_volumen.valor_de_valumen()
+        boton= datos.botones[5]
+        mouse_pos = pygame.mouse.get_pos()
+        if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
+            print("Estoy en el boton")
+            if not boton["hover"]:
+                boton["hover"] = True
+            color = (0, 0, 255)
+        else:
+            print("NO estoy en el boton")
+            boton["hover"] = False
+            color = (0, 0, 0)
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 pygame.quit()
