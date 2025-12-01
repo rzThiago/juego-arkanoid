@@ -4,6 +4,7 @@ import funciones.funciones as funcion
 import funciones.boton_jugar as jugar
 import funciones.boton_continuar as continuar
 import funciones.boton_creditos as creditos
+import funciones.boton_ranking as ranking
 
 sonido_boton = pygame.mixer.Sound("./utilidades/sonidos/Button.mp3")
 #sonido_boton.set_volume(datos.volumen)
@@ -26,6 +27,8 @@ def principal():
                             jugar.jugar()
                         elif boton["text"] == "Continue":
                             continuar.continuar()
+                        elif boton["text"] == "Ranking":
+                            ranking.ranking()
                         elif boton["text"] == "Credits":
                             creditos.creditos()
                         elif boton["text"] == "Options":

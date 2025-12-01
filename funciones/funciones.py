@@ -49,11 +49,20 @@ def dibujar_menu():
                 datos.botones[4]["dimension"]["x2"],
                 datos.botones[4]["dimension"]["y2"]
         ))
+        ventana.blit(
+            imagen.ranking,(
+                datos.botones[13]["dimension"]["x1"],
+                datos.botones[13]["dimension"]["y1"],
+                datos.botones[13]["dimension"]["x2"],
+                datos.botones[13]["dimension"]["y2"]
+        ))
     pygame.display.update()
 
 def dibujar_configuracion():
     ventana.blit(imagen.pantalla_configuracion, (0, 0))
 
+<<<<<<< HEAD
+=======
     configuracion_titulo_in = fuente_ochobit_in.render("OPCIONES", True, (110, 110, 110))
     configuracion_titulo_in_rect = configuracion_titulo_in.get_rect(center = (datos.ANCHO // 2, 100))
 
@@ -63,19 +72,14 @@ def dibujar_configuracion():
     ventana.blit(configuracion_titulo_in, configuracion_titulo_in_rect)
     ventana.blit(configuracion_titulo_out, configuracion_titulo_out_rect)
 
+>>>>>>> e6c0a39792a0061d49629f27d9a3ba198b9a5b8d
     sonido_boton.set_volume(datos.volumen)
     sonido_boton.play()
-    """
-            #Desactivar sonido
-        elif keys[pygame.K_m]:
-            pygame.mixer.music.set_volume(0.0)
-            ventana.blit(volumen_muteado, (600, 25))
-    """
-    #ventana.blit(imagen.pantalla_principal, (0, 0))
-    ventana.blit(imagen.dificultad,(120,285))
-    ventana.blit(imagen.volumen,(120,351))
-    ventana.blit(imagen.desactivado,(300,415))
-    ventana.blit(imagen.mute,(120,415))
+    ventana.blit(imagen.dificultad,(120,265))
+    ventana.blit(imagen.volumen,(120,331))
+    ventana.blit(imagen.desactivado,(300,395))
+    ventana.blit(imagen.mute,(120,395))
+
     ventana.blit(
         imagen.volver,(
             datos.botones[5]["dimension"]["x1"],
@@ -126,11 +130,37 @@ def dibujar_configuracion():
             datos.botones[12]["dimension"]["y2"]
             ))
     
+    boton= datos.botones[5]
+    mouse_pos = pygame.mouse.get_pos()
+    if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
+        print("Estoy en el boton")
+        if not boton["hover"]:
+            boton["hover"] = True
+        color = (0, 0, 255)
+    else:
+        print("NO estoy en el boton")
+        boton["hover"] = False
+        color = (0, 0, 0)
+
+    pygame.draw.rect(ventana, color, pygame.Rect(300, 460, 220, 45),4)
+
+    
     pygame.display.update()
     
     corriendo = True
     while (True):   
         valor_volumen.valor_de_valumen()
+        boton= datos.botones[5]
+        mouse_pos = pygame.mouse.get_pos()
+        if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
+            print("Estoy en el boton")
+            if not boton["hover"]:
+                boton["hover"] = True
+            color = (0, 0, 255)
+        else:
+            print("NO estoy en el boton")
+            boton["hover"] = False
+            color = (0, 0, 0)
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 pygame.quit()
