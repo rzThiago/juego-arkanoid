@@ -3,6 +3,11 @@ import os
 import random
 import pygame
 
+pygame.mixer.init()
+
+sonido_colision_paleta = pygame.mixer.Sound("./utilidades/sonidos/colision_paleta.ogg")
+sonido_destruccion_bloque = pygame.mixer.Sound("./utilidades/sonidos/destruccion_bloque.ogg")
+
 reloj = pygame.time.Clock()
 
 pygame.font.init()
@@ -68,6 +73,7 @@ def juego(ventana_juego, velocidad_pelota, tiempo, probabilidad_juego, fila_bloq
         if pelota.top <= 0:
             pelota_dy *= -1
         if pelota.colliderect(paleta):
+            sonido_colision_paleta.play()
             pelota_dy *= -1
             pelota.bottom = paleta.top # Corrección para que no se pegue
 
@@ -108,6 +114,7 @@ def juego(ventana_juego, velocidad_pelota, tiempo, probabilidad_juego, fila_bloq
                 bloque["death_time"] = tiempo_actual       # Guardamos cuándo murió
                 # -----------------------------------------------
 
+                sonido_destruccion_bloque.play()
                 pelota_dy *= -1
                 puntaje += 10
                 contador_colisiones_rojo -= 1

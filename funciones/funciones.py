@@ -2,6 +2,7 @@ import pygame
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
 import funciones.funcion_volumen as valor_volumen
+#from utilidades.fuentes import fuente_principal
 
 pygame.mixer.init()
 
@@ -51,6 +52,10 @@ def dibujar_menu():
     pygame.display.update()
 
 def dibujar_configuracion():
+    ventana.blit(imagen.pantalla_configuracion, (0, 0))
+
+    #titulo_configuracion = pygame.render()
+
     sonido_boton.set_volume(datos.volumen)
     sonido_boton.play()
     """
@@ -59,7 +64,7 @@ def dibujar_configuracion():
             pygame.mixer.music.set_volume(0.0)
             ventana.blit(volumen_muteado, (600, 25))
     """
-    ventana.blit(imagen.pantalla_principal, (0, 0))
+    #ventana.blit(imagen.pantalla_principal, (0, 0))
     ventana.blit(imagen.dificultad,(120,285))
     ventana.blit(imagen.volumen,(120,351))
     ventana.blit(imagen.desactivado,(300,415))
@@ -120,6 +125,8 @@ def dibujar_configuracion():
     while (True):   
         valor_volumen.valor_de_valumen()
         for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                pygame.quit()
             pygame.mixer.music.set_volume(datos.volumen) 
             if evento.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()

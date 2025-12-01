@@ -2,8 +2,11 @@ import pygame
 
 # Cargamos el fondo
 pantalla_principal = pygame.image.load("./utilidades/imagenes/pantalla_principal.png")
+
+pantalla_configuracion = pygame.image.load("./utilidades/imagenes/pantalla_configuracion31.png")
 # Reescalamos la Imagen de fondo
 pantalla_principal = pygame.transform.scale(pantalla_principal, (800, 600))
+pantalla_configuracion = pygame.transform.scale(pantalla_configuracion, (800, 600))
 #Cargamos imagenes
 jugar = pygame.image.load("./utilidades/imagenes/Play.png")
 continuar = pygame.image.load("./utilidades/imagenes/Continue.png")
