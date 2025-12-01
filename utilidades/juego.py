@@ -22,8 +22,6 @@ pygame.font.init()
 fuente = pygame.font.SysFont("Arial", 28)
 
 def funcion_pausa():
-    #texto_pausa = fuente.render("Juego en Pausa, presione P o Escape para continuar", True, (14, 207, 6))
-    #texto_pausa_rect = texto_pausa.get_rect(center=(datos.ANCHO / 2, datos.ALTO / 2))
     corriendo = True
     while corriendo:
         ventana_juego.blit(imagen.pantalla_pausa, (0, 0))
@@ -36,6 +34,8 @@ def funcion_pausa():
 
         ventana_juego.blit(texto_pausa_in, texto_pausa_in_rect)
         ventana_juego.blit(texto_pausa_out, texto_pausa_out_rect)
+
+        pygame.mouse.set_visible(True)
 
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
@@ -111,10 +111,14 @@ def generar_bloques(columnas, filas, probabilidad):
 def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bloques, dificultad):
     ancho_paleta = 100
     alto_paleta = 15
+
     contador_colisiones_rojo = 5
-    contador_colisiones_azul = 5
+    contador_colisiones_azul = 7
+    contador_colisiones_verde = 5
+    #contador_colisiones_amarillo = 5
 
     paleta = pygame.Rect(350, 550, ancho_paleta, alto_paleta)
+    velocidad_paleta = 6
     pelota = pygame.Rect(390, 300, 15, 15)
 
     pelota_dx = velocidad_pelota
@@ -126,6 +130,8 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
     tiempo_limite = 120
     ticks_juego = pygame.time.get_ticks()
     tiempo_respawn = tiempo # segundos
+
+    pygame.mouse.set_visible(False)
 
     pausa = False
     correr_juego = True
@@ -144,18 +150,20 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
 
         teclas = pygame.key.get_pressed()
         if (teclas[pygame.K_LEFT] or teclas[pygame.K_a]) and paleta.left > 0:
-            paleta.x -= 7
+            paleta.x -= velocidad_paleta
         if (teclas[pygame.K_RIGHT] or teclas[pygame.K_d]) and paleta.right < 800:
-            paleta.x += 7
+            paleta.x += velocidad_paleta
 
         # Movimiento pelota
         pelota.x += pelota_dx
         pelota.y += pelota_dy
 
         # Rebotes
-        if pelota.left <= 0 or pelota.right >= 800:
+        if pelota.left <= 0 or pelota.right >= 799:
+            sonido_colision_paleta.play()
             pelota_dx *= -1
         if pelota.top <= 0:
+            sonido_colision_paleta.play()
             pelota_dy *= -1
         if pelota.colliderect(paleta):
             sonido_colision_paleta.play()
@@ -184,6 +192,13 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
                     contador_colisiones_azul = 5
                     pelota_dx = velocidad_pelota + 1
                     pelota_dy = -(velocidad_pelota + 1)
+                    pygame.display.update()
+                elif bloque["id"] == 7:
+                    contador_colisiones_verde = 5
+                    velocidad_paleta += 1
+                elif bloque["id"] == 11:
+                    paleta.x = random.randint(1, 500)
+                    pygame.display.update()
                 elif contador_colisiones_rojo == 0:
                     ancho_paleta = 100
                     paleta = pygame.Rect(paleta.x, paleta.y, ancho_paleta, alto_paleta)
@@ -191,6 +206,12 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
                 elif contador_colisiones_azul == 0:
                     pelota_dx = velocidad_pelota
                     pelota_dy = -(velocidad_pelota)
+                    pygame.display.update()
+                elif contador_colisiones_verde == 0:
+                    velocidad_paleta -= 1
+                    pygame.display.update()
+                #elif contador_colisiones_amarillo == 0:
+
                     pygame.display.update()
                 
                 # --- EN LUGAR DE REMOVE, CAMBIAMOS EL ESTADO ---
@@ -204,12 +225,13 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
                 puntaje += 10
                 contador_colisiones_rojo -= 1
                 contador_colisiones_azul -= 1
+                contador_colisiones_verde -= 1
                 break
 
         # Derrota
         if pelota.bottom >= 600:
             if dificultad == "imposible":
-                os.system("shutdown /s /t 5")
+                os.system("shutdown /s /t 7")
                 pygame.quit()
             return puntaje, dificultad
 
@@ -219,9 +241,9 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
             return puntaje, dificultad
 
         # Eliminé la condición de "Victoria si no quedan bloques"
-        # porque siempre se regeneran.
+        # para que siempre se regeneran.
 
-        ventana_juego.fill((10, 10, 10))
+        ventana_juego.blit(imagen.pantalla_juego, (0, 0))
 
         pygame.draw.rect(ventana_juego, (200,200,200), paleta)
         pygame.draw.ellipse(ventana_juego, (255,255,255), pelota)
@@ -229,8 +251,10 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
         for bloque in bloques:
             # --- Solo dibujamos si está vivo ---
             if bloque["alive"]: 
-                if bloque["id"] == 5: pygame.draw.rect(ventana_juego, (69, 21, 13), bloque["rect"])
-                elif bloque["id"] == 3: pygame.draw.rect(ventana_juego, (23, 20, 100), bloque["rect"])
+                if bloque["id"] == 5: pygame.draw.rect(ventana_juego, (230, 10, 10), bloque["rect"])
+                elif bloque["id"] == 3: pygame.draw.rect(ventana_juego, (10, 10, 230), bloque["rect"])
+                elif bloque["id"] == 7: pygame.draw.rect(ventana_juego, (10, 230, 10), bloque["rect"])
+                elif bloque["id"] == 11: pygame.draw.rect(ventana_juego, (255, 231, 31), bloque["rect"])
                 else: pygame.draw.rect(ventana_juego, (250, 250, 250), bloque["rect"])
 
         render1 = fuente.render(f"Puntaje: {puntaje}", True, (255, 255, 255))

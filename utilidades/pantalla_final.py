@@ -12,6 +12,8 @@ reloj = pygame.time.Clock()
 def pantalla_final(puntaje, dificultad):
     ventana.blit(imagen_fondo, (0, 0))
 
+    pygame.mouse.set_visible(True)
+
     color_activo = pygame.Color((255, 255, 255))
     color_pasivo = pygame.Color((15, 15, 15))
     color = color_pasivo
