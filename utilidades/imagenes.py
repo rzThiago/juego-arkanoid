@@ -3,10 +3,7 @@ import pygame
 
 # Cargamos el fondo
 pantalla_principal = pygame.image.load("./utilidades/imagenes/pantalla_principal.png")
-<<<<<<< HEAD
 
-=======
->>>>>>> 4bea893c2f938b37f581d3b4e2fca1f397da0466
 
 pantalla_configuracion = pygame.image.load("./utilidades/imagenes/pantalla_configuracion31.png")
 # Reescalamos la Imagen de fondo

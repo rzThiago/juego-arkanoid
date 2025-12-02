@@ -1,12 +1,9 @@
 import pygame
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
-<<<<<<< HEAD
 import utilidades.fuentes as fuente
 import funciones.funcion_hover as funcion_hover
-=======
 from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out
->>>>>>> 4bea893c2f938b37f581d3b4e2fca1f397da0466
 import json
 pygame.mixer.init()
 sonido_boton = pygame.mixer.Sound("./utilidades/sonidos/Button.mp3")
@@ -54,14 +51,8 @@ def menu_ranking():
     pygame.display.update()
 def ranking():
     sonido_boton.play() 
-<<<<<<< HEAD
-    while (True):
-
-=======
     corriendo = True
     while corriendo:
-        #hover()
->>>>>>> 4bea893c2f938b37f581d3b4e2fca1f397da0466
         menu_ranking()
         for evento in pygame.event.get():
             pygame.mixer.music.set_volume(datos.volumen) 
