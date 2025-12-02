@@ -90,10 +90,10 @@ botones = [
         }
     },
     {   "text": "mute",
-        "rect": pygame.Rect(300, 415, 220, 45), 
+        "rect": pygame.Rect(300, 395, 220, 45), 
         "hover": False,
         "dimension": {
-            "x1":300, "x2":520, "y1":415, "y2":460
+            "x1":300, "x2":520, "y1":395, "y2":460
         }
     },
         {   "text": "imposible",

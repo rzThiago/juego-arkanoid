@@ -2,7 +2,8 @@ import pygame
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
 import funciones.funcion_volumen as valor_volumen
-from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out
+import funciones.funcion_hover as funcion_hover
+#from utilidades.fuentes import fuente_principal
 
 pygame.mixer.init()
 
@@ -56,23 +57,14 @@ def dibujar_menu():
                 datos.botones[13]["dimension"]["x2"],
                 datos.botones[13]["dimension"]["y2"]
         ))
+    for i in range(6):
+        botones_con_hover=[0, 1, 2, 3, 4, 13]
+        funcion_hover.funcion_hover(botones_con_hover[i])
+
     pygame.display.update()
 
 def dibujar_configuracion():
     ventana.blit(imagen.pantalla_configuracion, (0, 0))
-
-<<<<<<< HEAD
-=======
-    configuracion_titulo_in = fuente_ochobit_in.render("OPCIONES", True, (110, 110, 110))
-    configuracion_titulo_in_rect = configuracion_titulo_in.get_rect(center = (datos.ANCHO // 2, 100))
-
-    configuracion_titulo_out = fuente_ochobit_out.render("OPCIONES", True, (20, 20, 20))
-    configuracion_titulo_out_rect = configuracion_titulo_out.get_rect(center = (datos.ANCHO // 2, 100))
-
-    ventana.blit(configuracion_titulo_in, configuracion_titulo_in_rect)
-    ventana.blit(configuracion_titulo_out, configuracion_titulo_out_rect)
-
->>>>>>> e6c0a39792a0061d49629f27d9a3ba198b9a5b8d
     sonido_boton.set_volume(datos.volumen)
     sonido_boton.play()
     ventana.blit(imagen.dificultad,(120,265))
@@ -130,19 +122,7 @@ def dibujar_configuracion():
             datos.botones[12]["dimension"]["y2"]
             ))
     
-    boton= datos.botones[5]
-    mouse_pos = pygame.mouse.get_pos()
-    if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
-        print("Estoy en el boton")
-        if not boton["hover"]:
-            boton["hover"] = True
-        color = (0, 0, 255)
-    else:
-        print("NO estoy en el boton")
-        boton["hover"] = False
-        color = (0, 0, 0)
-
-    pygame.draw.rect(ventana, color, pygame.Rect(300, 460, 220, 45),4)
+    
 
     
     pygame.display.update()
@@ -150,17 +130,11 @@ def dibujar_configuracion():
     corriendo = True
     while (True):   
         valor_volumen.valor_de_valumen()
-        boton= datos.botones[5]
-        mouse_pos = pygame.mouse.get_pos()
-        if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
-            print("Estoy en el boton")
-            if not boton["hover"]:
-                boton["hover"] = True
-            color = (0, 0, 255)
-        else:
-            print("NO estoy en el boton")
-            boton["hover"] = False
-            color = (0, 0, 0)
+
+        for i in range(8):
+            botones_con_hover=[5, 6, 7, 8, 9, 10, 11, 12]
+            funcion_hover.funcion_hover(botones_con_hover[i])
+
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 pygame.quit()

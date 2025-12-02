@@ -2,6 +2,7 @@ import pygame
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
 import utilidades.fuentes as fuente
+import funciones.funcion_hover as funcion_hover
 import json
 pygame.mixer.init()
 sonido_boton = pygame.mixer.Sound("./utilidades/sonidos/Button.mp3")
@@ -16,21 +17,7 @@ def menu_ranking():
             datos.botones[5]["dimension"]["x2"],
             datos.botones[5]["dimension"]["y2"]
             ))
-    #hover()
-
-    boton= datos.botones[5]
-    mouse_pos = pygame.mouse.get_pos()
-    if pygame.Rect(300, 460, 220, 45).collidepoint(mouse_pos):
-        print("Estoy en el boton")
-        if not boton["hover"]:
-            boton["hover"] = True
-        color = (0, 0, 255)
-    else:
-        print("NO estoy en el boton")
-        boton["hover"] = False
-        color = (0, 0, 0)
-
-    pygame.draw.rect(ventana, color, pygame.Rect(300, 460, 220, 45),4)
+    funcion_hover.funcion_hover(5)
 
     with open("utilidades/ranking.json", "r") as archivo:
         ranking = json.load(archivo)  # Cargar el contenido del archivo JSON
@@ -54,7 +41,7 @@ def menu_ranking():
 def ranking():
     sonido_boton.play() 
     while (True):
-        #hover()
+
         menu_ranking()
         for evento in pygame.event.get():
             pygame.mixer.music.set_volume(datos.volumen) 
