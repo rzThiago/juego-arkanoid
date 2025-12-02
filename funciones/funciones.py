@@ -61,8 +61,6 @@ def dibujar_menu():
 def dibujar_configuracion():
     ventana.blit(imagen.pantalla_configuracion, (0, 0))
 
-<<<<<<< HEAD
-=======
     configuracion_titulo_in = fuente_ochobit_in.render("OPCIONES", True, (110, 110, 110))
     configuracion_titulo_in_rect = configuracion_titulo_in.get_rect(center = (datos.ANCHO // 2, 100))
 
@@ -72,7 +70,6 @@ def dibujar_configuracion():
     ventana.blit(configuracion_titulo_in, configuracion_titulo_in_rect)
     ventana.blit(configuracion_titulo_out, configuracion_titulo_out_rect)
 
->>>>>>> e6c0a39792a0061d49629f27d9a3ba198b9a5b8d
     sonido_boton.set_volume(datos.volumen)
     sonido_boton.play()
     ventana.blit(imagen.dificultad,(120,265))

@@ -1,7 +1,7 @@
 import pygame
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
-import utilidades.fuentes as fuente
+from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out
 import json
 pygame.mixer.init()
 sonido_boton = pygame.mixer.Sound("./utilidades/sonidos/Button.mp3")
@@ -9,6 +9,16 @@ ventana = pygame.display.set_mode((datos.ANCHO, datos.ALTO))
 
 def menu_ranking():
     ventana.blit(imagen.pantalla_configuracion, (0, 0))
+
+    titulo_ranking_in = fuente_ochobit_in.render("RANKING", True, (239, 184, 16))
+    titulo_ranking_in_rect = titulo_ranking_in.get_rect(center = (datos.ANCHO // 2, 100))
+
+    titulo_ranking_out = fuente_ochobit_out.render("RANKING", True, (30, 30, 30))
+    titulo_ranking_out_rect = titulo_ranking_out.get_rect(center = (datos.ANCHO // 2, 100))
+
+    ventana.blit(titulo_ranking_in, titulo_ranking_in_rect)
+    ventana.blit(titulo_ranking_out, titulo_ranking_out_rect)
+
     ventana.blit(
         imagen.volver,(
             datos.botones[5]["dimension"]["x1"],
@@ -53,11 +63,14 @@ def menu_ranking():
     pygame.display.update()
 def ranking():
     sonido_boton.play() 
-    while (True):
+    corriendo = True
+    while corriendo:
         #hover()
         menu_ranking()
         for evento in pygame.event.get():
             pygame.mixer.music.set_volume(datos.volumen) 
+            if evento.type == pygame.QUIT:
+                pygame.quit()
 
             if evento.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()

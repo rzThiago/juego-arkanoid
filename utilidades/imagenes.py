@@ -3,7 +3,6 @@ import pygame
 
 # Cargamos el fondo
 pantalla_principal = pygame.image.load("./utilidades/imagenes/pantalla_principal.png")
-<<<<<<< HEAD
 
 pantalla_configuracion = pygame.image.load("./utilidades/imagenes/pantalla_configuracion31.png")
 # Reescalamos la Imagen de fondo
@@ -14,21 +13,18 @@ pantalla_configuracion = pygame.transform.scale(pantalla_configuracion, (800, 60
 
 pantalla_derrota = pygame.image.load("./utilidades/imagenes/pantalla_derrota2.png")
 #pantalla_derrota = pygame.transform.scale(pantalla_derrota, (800, 600))
-=======
->>>>>>> e6c0a39792a0061d49629f27d9a3ba198b9a5b8d
+
 pantalla_pausa = pygame.image.load("./utilidades/imagenes/pantalla_pausa2.png")
 pantalla_configuracion = pygame.image.load("./utilidades/imagenes/pantalla_configuracion31.png")
 pantalla_derrota = pygame.image.load("./utilidades/imagenes/pantalla_derrota2.png")
 pantalla_juego = pygame.image.load("./utilidades/imagenes/fondo_juego.png")
 # Reescalamos la Imagen de fondo
 #pantalla_pausa = pygame.transform.scale(pantalla_pausa, (800, 600))
-<<<<<<< HEAD
 
-=======
 #pantalla_derrota = pygame.transform.scale(pantalla_derrota, (800, 600))
 pantalla_principal = pygame.transform.scale(pantalla_principal, (800, 600))
 pantalla_configuracion = pygame.transform.scale(pantalla_configuracion, (800, 600))
->>>>>>> e6c0a39792a0061d49629f27d9a3ba198b9a5b8d
+
 #Cargamos imagenes
 jugar = pygame.image.load("./utilidades/imagenes/Play.png")
 continuar = pygame.image.load("./utilidades/imagenes/Continue.png")
