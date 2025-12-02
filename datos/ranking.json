@@ -133,5 +133,25 @@
         "nombre": "sssss",
         "puntaje": 10,
         "dificultad": "facil"
+    },
+    {
+        "nombre": "Chopo",
+        "puntaje": 1430,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "chopo",
+        "puntaje": 10,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "jokg",
+        "puntaje": 10,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "casa",
+        "puntaje": 430,
+        "dificultad": "facil"
     }
 ]

@@ -3,14 +3,14 @@ import pygame
 
 # Cargamos el fondo
 pantalla_principal = pygame.image.load("./utilidades/imagenes/pantalla_principal1.png")
-
+pantalla_creditos = pygame.image.load("./utilidades/imagenes/pantalla_creditos.png")
 
 pantalla_configuracion = pygame.image.load("./utilidades/imagenes/pantalla_configuracion31.png")
 # Reescalamos la Imagen de fondo
 #pantalla_principal = pygame.transform.scale(pantalla_principal, (800, 600))
 
 pantalla_configuracion = pygame.transform.scale(pantalla_configuracion, (800, 600))
-
+pantalla_creditos = pygame.transform.scale(pantalla_creditos, (800, 600))
 
 pantalla_derrota = pygame.image.load("./utilidades/imagenes/pantalla_derrota2.png")
 #pantalla_derrota = pygame.transform.scale(pantalla_derrota, (800, 600))
