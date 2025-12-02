@@ -203,5 +203,10 @@
         "nombre": "Chopo",
         "puntaje": 1050,
         "dificultad": "facil"
+    },
+    {
+        "nombre": "ass",
+        "puntaje": 10,
+        "dificultad": "facil"
     }
 ]

@@ -6,6 +6,7 @@ import utilidades.constantes as datos
 import utilidades.imagenes as imagen
 import funciones.funciones as funcion
 import funciones.funcion_principal as funcion_principal
+import funciones.boton_creditos as creditos
 from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out, fuente_diesciseis_bit
 
 ventana_juego = pygame.display.set_mode((datos.ANCHO, datos.ALTO))
@@ -49,7 +50,7 @@ def funcion_pausa():
                         if boton["text"] == "Continue":
                             corriendo = False
                         elif boton["text"] == "Credits":
-                            pass
+                            creditos.dibujar_creditos()
                         elif boton["text"] == "Options":
                             datos.volumen, datos.dificultad = funcion.dibujar_configuracion()
                             sonido_boton.set_volume(datos.volumen)
