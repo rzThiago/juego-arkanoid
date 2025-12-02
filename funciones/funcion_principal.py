@@ -5,6 +5,7 @@ import funciones.boton_jugar as jugar
 import funciones.boton_continuar as continuar
 import funciones.boton_creditos as creditos
 import funciones.boton_ranking as ranking
+import funciones.funcion_introduccion as introduccion
 
 sonido_boton = pygame.mixer.Sound("./utilidades/sonidos/Button.mp3")
 #sonido_boton.set_volume(datos.volumen)
@@ -12,6 +13,7 @@ def principal():
     pygame.mixer.music.load("./utilidades/sonidos/Arkanoid_musica_principal.mp3")
     pygame.mixer.music.play(-1) 
     corriendo = True
+    introduccion.introduccion()
     while corriendo:
 
         funcion.dibujar_menu()
