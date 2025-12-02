@@ -81,3 +81,5 @@ sprite_explosion = pygame.image.load("./utilidades/imagenes/Explosion.png")
 
 bolita_original= pygame.image.load("./utilidades/imagenes/Bala  Pelotita.png")
 sprite_bolita = pygame.transform.scale(bolita_original, (15,15))
+
+icono = pygame.image.load("./utilidades/imagenes/icono.png")

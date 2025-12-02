@@ -1,7 +1,7 @@
 import pygame
 ANCHO = 800
 ALTO = 600
-TITULO = "Arkaniod - Turbo"
+TITULO = "Arkaniod - PyStudio"
 pygame.init()
 volumen = 0.5   
 dificultad = "facil"

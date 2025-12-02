@@ -153,5 +153,25 @@
         "nombre": "casa",
         "puntaje": 430,
         "dificultad": "facil"
+    },
+    {
+        "nombre": "Chopo",
+        "puntaje": 550,
+        "dificultad": "dificil"
+    },
+    {
+        "nombre": "Casa",
+        "puntaje": 570,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "Chay",
+        "puntaje": 10,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "Casaaaa",
+        "puntaje": 290,
+        "dificultad": "facil"
     }
 ]
