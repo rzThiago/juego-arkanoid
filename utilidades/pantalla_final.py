@@ -3,6 +3,7 @@ import pygame
 from utilidades.fuentes import fuente_principal, fuente_ochobit_in, fuente_ochobit_out
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
+from funciones.cargar_datos_ranking import cargar_datos 
 
 ventana = pygame.display.set_mode((datos.ANCHO, datos.ALTO))
 
@@ -38,6 +39,7 @@ def pantalla_final(puntaje, dificultad):
                 if estado_input == True:
                     if evento.key == pygame.K_RETURN and len(nombre_usuario) > 2 and evento.key != pygame.K_BACKSPACE:
                         print(nombre_usuario, puntaje, dificultad)
+                        cargar_datos(nombre=nombre_usuario, puntaje=puntaje, dificultad=dificultad)
                         iniciar_pantalla = False
                     elif evento.key == pygame.K_BACKSPACE:
                         nombre_usuario = nombre_usuario[:-1]
