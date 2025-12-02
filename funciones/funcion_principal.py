@@ -31,8 +31,8 @@ def principal():
                             continuar.continuar()
                         elif boton["text"] == "Ranking":
                             ranking.menu_ranking()
-                        # elif boton["text"] == "Credits":
-                        #     creditos.creditos()
+                        elif boton["text"] == "Credits":
+                            creditos.dibujar_creditos()
                         elif boton["text"] == "Options":
                             print("Options...")
                             datos.volumen, datos.dificultad = funcion.dibujar_configuracion()
