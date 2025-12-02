@@ -96,7 +96,7 @@ def generar_bloques(columnas, filas, probabilidad):
     for y in range(filas):
         for x in range(columnas):
             random_id = random.randint(0, probabilidad)
-            rect = pygame.Rect(60 + x*70, 60 + y*30, 60, 20)
+            rect = pygame.Rect(60 + x*70, 60 + y*30, 60, 37)
             # --- MODIFICACIÓN: Agregamos estado y tiempo al diccionario ---
             bloques.append({
                 "rect": rect, 
@@ -109,7 +109,7 @@ def generar_bloques(columnas, filas, probabilidad):
 
 def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bloques, dificultad):
     ancho_paleta = 100
-    alto_paleta = 15
+    alto_paleta = 45
 
     contador_colisiones_rojo = 5
     contador_colisiones_azul = 7
@@ -119,6 +119,8 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
     paleta = pygame.Rect(350, 550, ancho_paleta, alto_paleta)
     velocidad_paleta = 7
     pelota = pygame.Rect(390, 300, 15, 15)
+
+
 
     pelota_dx = velocidad_pelota
     pelota_dy = -(velocidad_pelota)
@@ -243,18 +245,20 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
         # para que siempre se regeneran.
 
         ventana_juego.blit(imagen.pantalla_juego, (0, 0))
+        ventana_juego.blit(imagen.sprite_milenario, paleta)
+        ventana_juego.blit(imagen.sprite_bolita, pelota)
 
-        pygame.draw.rect(ventana_juego, (200,200,200), paleta)
-        pygame.draw.ellipse(ventana_juego, (255,255,255), pelota)
+
         
         for bloque in bloques:
             # --- Solo dibujamos si está vivo ---
             if bloque["alive"]: 
-                if bloque["id"] == 5: pygame.draw.rect(ventana_juego, (230, 10, 10), bloque["rect"])
-                elif bloque["id"] == 3: pygame.draw.rect(ventana_juego, (10, 10, 230), bloque["rect"])
-                elif bloque["id"] == 7: pygame.draw.rect(ventana_juego, (10, 230, 10), bloque["rect"])
-                elif bloque["id"] == 11: pygame.draw.rect(ventana_juego, (255, 231, 31), bloque["rect"])
-                else: pygame.draw.rect(ventana_juego, (250, 250, 250), bloque["rect"])
+
+                if bloque["id"] == 5: ventana_juego.blit(imagen.sprite_alien_rojo, bloque["rect"])
+                elif bloque["id"] == 3: ventana_juego.blit(imagen.sprite_alien_azul, bloque["rect"])
+                elif bloque["id"] == 7: ventana_juego.blit(imagen.sprite_alien_verde, bloque["rect"])
+                elif bloque["id"] == 11: ventana_juego.blit(imagen.sprite_alien_amarillo, bloque["rect"])
+                else: ventana_juego.blit(imagen.nave_enemiga, bloque["rect"])
 
         render1 = fuente_diesciseis_bit.render(f"Puntaje {puntaje}", True, (255, 255, 255))
         render2 = fuente_diesciseis_bit.render(f"Tiempo {int(tiempo_limite - segundos)}", True, (255, 255, 255))
