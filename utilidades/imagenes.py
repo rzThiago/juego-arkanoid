@@ -58,8 +58,6 @@ volumen90 = pygame.image.load("./utilidades/imagenes/volumen901.png")
 volumen100 = pygame.image.load("./utilidades/imagenes/volumen1001.png")
 ranking= pygame.image.load("./utilidades/imagenes/Ranking1.png")
 
-creditos_original = pygame.image.load("./utilidades/imagenes/Render fondo.png")
-creditos_imagen = pygame.transform.scale(creditos_original, (800,600))
 
 nave_enemiga_original = pygame.image.load("./utilidades/imagenes/Nave alien sin fondo.png")
 nave_enemiga = pygame.transform.scale(nave_enemiga_original, (60,40))
