@@ -13,7 +13,7 @@ def principal():
     pygame.mixer.music.load("./utilidades/sonidos/Arkanoid_musica_principal.mp3")
     pygame.mixer.music.play(-1) 
     corriendo = True
-    introduccion.introduccion()
+    #introduccion.introduccion()
     while corriendo:
 
         funcion.dibujar_menu()
@@ -30,9 +30,9 @@ def principal():
                         elif boton["text"] == "Continue":
                             continuar.continuar()
                         elif boton["text"] == "Ranking":
-                            ranking.ranking()
-                        elif boton["text"] == "Credits":
-                            creditos.creditos()
+                            ranking.menu_ranking()
+                        # elif boton["text"] == "Credits":
+                        #     creditos.creditos()
                         elif boton["text"] == "Options":
                             print("Options...")
                             datos.volumen, datos.dificultad = funcion.dibujar_configuracion()

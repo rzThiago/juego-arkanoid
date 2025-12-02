@@ -6,7 +6,7 @@ import utilidades.constantes as datos
 import utilidades.imagenes as imagen
 import funciones.funciones as funcion
 import funciones.funcion_principal as funcion_principal
-from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out
+from utilidades.fuentes import fuente_ochobit_in, fuente_ochobit_out, fuente_diesciseis_bit
 
 ventana_juego = pygame.display.set_mode((datos.ANCHO, datos.ALTO))
 
@@ -19,7 +19,6 @@ reloj = pygame.time.Clock()
 
 sonido_boton = pygame.mixer.Sound("./utilidades/sonidos/Button.mp3")
 pygame.font.init()
-fuente = pygame.font.SysFont("Arial", 28)
 
 def funcion_pausa():
     corriendo = True
@@ -118,7 +117,7 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
     #contador_colisiones_amarillo = 5
 
     paleta = pygame.Rect(350, 550, ancho_paleta, alto_paleta)
-    velocidad_paleta = 6
+    velocidad_paleta = 7
     pelota = pygame.Rect(390, 300, 15, 15)
 
     pelota_dx = velocidad_pelota
@@ -257,10 +256,10 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
                 elif bloque["id"] == 11: pygame.draw.rect(ventana_juego, (255, 231, 31), bloque["rect"])
                 else: pygame.draw.rect(ventana_juego, (250, 250, 250), bloque["rect"])
 
-        render1 = fuente.render(f"Puntaje: {puntaje}", True, (255, 255, 255))
-        render2 = fuente.render(f"Tiempo: {int(tiempo_limite - segundos)}", True, (255, 255, 255))
+        render1 = fuente_diesciseis_bit.render(f"Puntaje {puntaje}", True, (255, 255, 255))
+        render2 = fuente_diesciseis_bit.render(f"Tiempo {int(tiempo_limite - segundos)}", True, (255, 255, 255))
         ventana_juego.blit(render1, (10, 10))
-        ventana_juego.blit(render2, (650, 10))
+        ventana_juego.blit(render2, (580, 10))
 
         reloj.tick(60)
         pygame.display.update()

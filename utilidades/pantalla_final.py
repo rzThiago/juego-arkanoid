@@ -1,9 +1,9 @@
 import pygame
 
-from utilidades.fuentes import fuente_principal, fuente_ochobit_in, fuente_ochobit_out
+from utilidades.fuentes import fuente_diesciseis_bit, fuente_ochobit_in, fuente_ochobit_out
 import utilidades.constantes as datos
 import utilidades.imagenes as imagen
-from funciones.cargar_datos_ranking import cargar_datos 
+from funciones.datos_ranking import cargar_datos 
 
 ventana = pygame.display.set_mode((datos.ANCHO, datos.ALTO))
 
@@ -21,7 +21,7 @@ def pantalla_final(puntaje, dificultad):
     estado_input = False
     #fuente = pygame.font.Font(None, 55)
     nombre_usuario = ""
-    input_rect = pygame.Rect((datos.ANCHO // 2) - 250, 390, 500, 52)
+    input_rect = pygame.Rect((datos.ANCHO // 2) - 140, 390, 280, 52)
 
     iniciar_pantalla = True
     while iniciar_pantalla:
@@ -38,12 +38,12 @@ def pantalla_final(puntaje, dificultad):
             if evento.type == pygame.KEYDOWN:
                 if estado_input == True:
                     if evento.key == pygame.K_RETURN and len(nombre_usuario) > 2 and evento.key != pygame.K_BACKSPACE:
-                        print(nombre_usuario, puntaje, dificultad)
+                        #print(nombre_usuario, puntaje, dificultad)
                         cargar_datos(nombre=nombre_usuario, puntaje=puntaje, dificultad=dificultad)
                         iniciar_pantalla = False
                     elif evento.key == pygame.K_BACKSPACE:
                         nombre_usuario = nombre_usuario[:-1]
-                    elif len(nombre_usuario) < 16 and evento.key != pygame.K_RETURN and evento.key != pygame.K_BACKSPACE:
+                    elif len(nombre_usuario) < 10 and evento.key != pygame.K_RETURN and evento.key != pygame.K_BACKSPACE:
                         nombre_usuario += evento.unicode
                     
         
@@ -58,10 +58,10 @@ def pantalla_final(puntaje, dificultad):
         fin_juego_dos = fuente_ochobit_out.render("FIN DEL JUEGO", True, (30, 30, 30))
         fin_juego_dos_rect = fin_juego_dos.get_rect(center = (datos.ANCHO // 2, 100))
 
-        puntaje_texto = fuente_principal.render(f"Puntaje: {puntaje}", True, (255, 255, 255))
+        puntaje_texto = fuente_diesciseis_bit.render(f"Puntaje {puntaje}", True, (255, 255, 255))
         puntaje_texto_rect = puntaje_texto.get_rect(center = (datos.ANCHO / 2, 250))
 
-        nombre_texto = fuente_principal.render("Ingrese su nombre:", True, (255, 255, 255))
+        nombre_texto = fuente_diesciseis_bit.render("Ingrese su nombre", True, (255, 255, 255))
         nombre_texto_rect = nombre_texto.get_rect(center = (datos.ANCHO / 2, 360))
 
         ventana.blit(fin_juego_uno, fin_juego_uno_rect)
@@ -70,7 +70,7 @@ def pantalla_final(puntaje, dificultad):
         ventana.blit(nombre_texto, nombre_texto_rect)
 
         pygame.draw.rect(ventana, (20, 20, 20), input_rect)
-        superficie_texto = fuente_principal.render(nombre_usuario, True, (240, 240, 240))
+        superficie_texto = fuente_diesciseis_bit.render(nombre_usuario, True, (240, 240, 240))
         ventana.blit(superficie_texto, (input_rect.x + 5, input_rect.y + 5))
         pygame.draw.rect(ventana, color, input_rect, 2)
 
