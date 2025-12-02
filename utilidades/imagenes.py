@@ -20,6 +20,7 @@ pantalla_configuracion = pygame.image.load("./utilidades/imagenes/pantalla_confi
 pantalla_derrota = pygame.image.load("./utilidades/imagenes/pantalla_derrota2.png")
 pantalla_juego = pygame.image.load("./utilidades/imagenes/fondo_juego.png")
 pantalla_ranking = pygame.image.load("./utilidades/imagenes/pantalla_ranking1.png")
+pantalla_creditos = pygame.image.load("./utilidades/imagenes/pantalla_creditos.png")
 # Reescalamos la Imagen de fondo
 #pantalla_pausa = pygame.transform.scale(pantalla_pausa, (800, 600))
 
@@ -27,6 +28,7 @@ pantalla_ranking = pygame.image.load("./utilidades/imagenes/pantalla_ranking1.pn
 pantalla_principal = pygame.transform.scale(pantalla_principal, (800, 600))
 pantalla_configuracion = pygame.transform.scale(pantalla_configuracion, (800, 600))
 pantalla_ranking = pygame.transform.scale(pantalla_ranking, (800, 600))
+pantalla_creditos = pygame.transform.scale(pantalla_creditos, (800, 600))
 #Cargamos imagenes
 jugar = pygame.image.load("./utilidades/imagenes/Play1.png")
 continuar = pygame.image.load("./utilidades/imagenes/Continue1.png")

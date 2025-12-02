@@ -48,10 +48,10 @@ botones = [
     },
     {   
         "text": "Return",
-        "rect": pygame.Rect(300, 460, 224, 49),
+        "rect": pygame.Rect(300, 525, 224, 49),
         "hover": False,
         "dimension": {
-            "x1":300, "x2":520, "y1":460, "y2":525
+            "x1":300, "x2":520, "y1":525, "y2":525
         }
     },
     {   "text": "volumen+",
