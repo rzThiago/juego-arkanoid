@@ -232,7 +232,7 @@ def juego(velocidad_pelota, tiempo, probabilidad_juego, fila_bloques, columna_bl
         # Derrota
         if pelota.bottom >= 600:
             if dificultad == "imposible":
-                os.system("shutdown /t 7")
+                os.system("shutdown /s /t 7")
                 pygame.quit()
             return puntaje, dificultad
 

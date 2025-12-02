@@ -173,5 +173,35 @@
         "nombre": "Casaaaa",
         "puntaje": 290,
         "dificultad": "facil"
+    },
+    {
+        "nombre": "\t\tdasff",
+        "puntaje": 300,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "ass",
+        "puntaje": 50,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "Q@//",
+        "puntaje": 560,
+        "dificultad": "dificil"
+    },
+    {
+        "nombre": "555",
+        "puntaje": 10,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "rew",
+        "puntaje": 240,
+        "dificultad": "facil"
+    },
+    {
+        "nombre": "Chopo",
+        "puntaje": 1050,
+        "dificultad": "facil"
     }
 ]
